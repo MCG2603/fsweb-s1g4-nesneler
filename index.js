@@ -15,8 +15,11 @@ const serpmeKahvalti = {isim: "Serpme Kahvaltı", fiyat: 16, kategori:"Kahvaltı
 */
 
 
-function MenuElemaniOlustur(/*Kodlar buraya*/){
-	/*Kodlar buraya*/
+function MenuElemaniOlustur(eleman1,eleman2,eleman3){
+
+
+	const nesne = {isim: eleman1, fiyat: eleman2, kategori: eleman3};
+	return nesne;
 }
 
 
@@ -30,6 +33,7 @@ function MenuElemaniOlustur(/*Kodlar buraya*/){
 	
 	Örnek: MenuElemaniOlustur("Karışık Pizza",5,"Pizzalar") şunu döndürür: {isim:"Karışık Pizza",fiyat:5,kategori:"Pizzalar"}
 */
+console.log(MenuElemaniOlustur("etDoner",10,"anaYemekler"));
 
 
 
@@ -50,6 +54,15 @@ const burger = {
 	isim: "Burger", 
 	fiyat: 18, 
 	kategori: "Öğle Yemeği", 
+	indirim:(musteri)=>{
+		if(musteri=="öğretmen"){
+			return 13.5 ;
+		}
+		if(musteri=="öğrenci"){
+			return 13.5 ;
+		}
+		return 16.2;
+	}
 
 }
 
@@ -71,8 +84,9 @@ const degerlendirmeler = [
 	Yukarıdaki degerlendirmeler dizisini(array) kullanarak:
 	1. Sadece Ahmet'in geribildirimini konsolda görüntüleyin - fonksiyona gerek yok
 */
+const index=degerlendirmeler.findIndex(x => x.isim === 'Ahmet');
 
-
+console.log(degerlendirmeler[index].geribildirim);
 
 /*  Görev 4 (ototest yok):  
 	Reyna'nın geribildirimi girilmemiş! Aşağıdakileri uygulayın: (fonksiyona gerek yok) 
@@ -94,11 +108,11 @@ const degerlendirmeler = [
 */
 
 
-function DegerledirmeEkle(/*Kodlar buraya */){
-	/*Kodlar buraya */
-	
-}
-
+function DegerledirmeEkle(aaray,isim1,puan1,geribildirim1){
+	const nesne=  {isim: isim1 , puan: puan1, geribildirim: geribildirim1};
+	aaray.push(nesne);
+	return aaray;	
+};
 
 
 /*  Görev 6: 
@@ -112,11 +126,12 @@ function DegerledirmeEkle(/*Kodlar buraya */){
 */
 
 
-function AnahtardanDegerlendirmeAl(/*Kodlar buraya*/) {
-	/*Kodlar buraya*/
+	console.log(degerlendirmeler[0]);
 
-}
-
+function AnahtardanDegerlendirmeAl(aaray,anahtar) {
+	
+	return aaray[anahtar].isim+" isimli kişi "+aaray[anahtar].puan+" puan verdi ve şunları yazdı: "+aaray[anahtar].geribildirim;
+	};
 
 
 /*  Görev 7:  
@@ -132,9 +147,10 @@ function AnahtardanDegerlendirmeAl(/*Kodlar buraya*/) {
 */
 
 
-function SonDegerlendirmeyiAl(/*Kodlar buraya*/) {
-	/*Kodlar buraya*/
-} 
+function SonDegerlendirmeyiAl(aaray) {
+
+	return aaray[aaray.length-1].isim+" isimli kişi "+aaray[aaray.length-1].puan+" puan verdi ve şunları yazdı: "+aaray[aaray.length-1].geribildirim;
+	};
 
 
 
